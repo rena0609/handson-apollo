@@ -1,0 +1,37 @@
+{
+  "name": "handson-apollo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "apollo-cache-inmemory": "latest",
+    "apollo-client": "latest",
+    "apollo-link-http": "latest",
+    "graphql-tag": "^2.9.2",
+    "react": "^16.5.2",
+    "react-apollo": "^2.1.11",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.0.0",
+    "@types/prop-types": "^15.5.5",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
+    "apollo-codegen": "^0.20.2",
+    "husky": "^1.0.0-rc.15",
+    "parcel-bundler": "^1.9.7",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.7.0",
+    "typescript": "^3.0.3"
+  },
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html --public-url '/'",
+    "schema": "apollo-codegen download-schema https://3kvzv77m1v.lp.gql.zone/graphql --output ./src/schema.json",
+    "types": "apollo-codegen generate ./src/**/queries.ts --addTypename --schema ./src/schema.json --target typescript --output ./src/__generated__/types.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
