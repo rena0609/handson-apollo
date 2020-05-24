@@ -1,19 +1,19 @@
-import * as React from 'react';
-import { render } from 'react-dom';
-import { ApolloClient } from 'apollo-client';
-import { createHttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloProvider } from 'react-apollo';
+import * as React from "react";
+import { render } from "react-dom";
+import { ApolloClient } from "apollo-client";
+import { createHttpLink } from "apollo-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { ApolloProvider } from "react-apollo";
 
-import { App } from './App';
+import { App } from "./App";
 
 const httpLink = createHttpLink({
-  uri: 'https://3kvzv77m1v.lp.gql.zone/graphql',
+  uri: "http://localhost:4000/graphql"
 });
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: httpLink,
+  link: httpLink
 });
 
 const WrappedApp = (
@@ -22,4 +22,4 @@ const WrappedApp = (
   </ApolloProvider>
 );
 
-render(WrappedApp, document.getElementById('root'));
+render(WrappedApp, document.getElementById("root"));

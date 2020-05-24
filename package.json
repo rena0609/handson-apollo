@@ -26,7 +26,7 @@
   "scripts": {
     "start": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html --public-url '/'",
-    "schema": "apollo-codegen download-schema https://3kvzv77m1v.lp.gql.zone/graphql --output ./src/schema.json",
+    "schema": "apollo-codegen download-schema http://localhost:4000/graphql --output ./src/schema.json",
     "types": "apollo-codegen generate ./src/**/queries.ts --addTypename --schema ./src/schema.json --target typescript --output ./src/__generated__/types.ts"
   },
   "husky": {
