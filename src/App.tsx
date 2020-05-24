@@ -1,3 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
+import { WishLists } from "./WishLists/WishLists";
 
-export const App = () => <p>Hello, from inside the ApolloProvider !</p>;
+export const App: React.SFC = () => <WishLists />;
