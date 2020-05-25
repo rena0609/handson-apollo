@@ -1,4 +1,6 @@
-import * as React from "react";
+import React from "react";
 import { WishLists } from "./WishLists/WishLists";
 
-export const App: React.SFC = () => <WishLists />;
+export const App = () => {
+  return <WishLists />;
+};

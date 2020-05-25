@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "build/dist",
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es2015",
     "lib": ["es2015", "dom", "esnext.asynciterable"],
     "sourceMap": true,
@@ -10,7 +10,14 @@
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "src",
-    "strict": true
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
   "exclude": [
     "node_modules",
@@ -23,5 +30,6 @@
     "dist",
     "server"
   ],
-  "types": ["typePatches"]
+  "types": ["typePatches"],
+  "include": ["src"]
 }
