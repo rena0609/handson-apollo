@@ -6,8 +6,8 @@ import { useQuery } from "@apollo/react-hooks";
 export const WishLists: React.FC = () => {
   const { loading, error, data } = useQuery<myWishLists>(myWishListsQuery);
 
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+  if (loading) return <>Loading...</>;
+  if (error) return <>`Error! ${error.message}`</>;
 
   return (
     <div className="WishLists">
