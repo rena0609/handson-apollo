@@ -17,3 +17,19 @@ export const myWishListsQuery = gql`
     }
   }
 `;
+
+export const createNewListMutation = gql`
+  mutation createNewList($input: ListInput!) {
+    createNewList(input: $input) {
+      id
+      title
+      description
+      things {
+        id
+        name
+        description
+        nHowMany
+      }
+    }
+  }
+`;

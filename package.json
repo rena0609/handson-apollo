@@ -10,7 +10,8 @@
     "react": "^16.5.2",
     "react-apollo": "^3.0.0",
     "react-dom": "^16.5.2",
-    "react-hooks": "^1.0.1"
+    "react-hooks": "^1.0.1",
+    "src": "^1.1.2"
   },
   "devDependencies": {
     "@types/graphql": "^14.0.0",

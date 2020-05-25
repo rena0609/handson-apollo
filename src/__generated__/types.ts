@@ -28,9 +28,46 @@ export interface myWishLists {
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL mutation operation: createNewList
+// ====================================================
+
+export interface createNewList_createNewList_things {
+  __typename: "WhatIWant";
+  id: number;
+  name: string;
+  description: string | null;
+  nHowMany: number;
+}
+
+export interface createNewList_createNewList {
+  __typename: "WishList";
+  id: number;
+  title: string;
+  description: string | null;
+  things: createNewList_createNewList_things[];
+}
+
+export interface createNewList {
+  createNewList: createNewList_createNewList[];
+}
+
+export interface createNewListVariables {
+  input: ListInput;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+//
+export interface ListInput {
+  title: string;
+  description?: string | null;
+}
 
 //==============================================================
 // END Enums and Input Objects

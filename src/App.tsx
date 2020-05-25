@@ -1,6 +1,11 @@
 import React from "react";
-import { WishLists } from "./WishLists/WishLists";
+import { WishLists, CreateNewList } from "./WishLists/WishLists";
 
 export const App = () => {
-  return <WishLists />;
+  return (
+    <>
+      <CreateNewList />
+      <WishLists />
+    </>
+  );
 };
