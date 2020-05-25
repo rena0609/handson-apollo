@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import { myWishListsQuery, createNewListMutation } from "./queries";
 import { myWishLists, createNewList } from "src/__generated__/types";
 import { useQuery, useMutation } from "@apollo/react-hooks";
+import { MutationUpdaterFn } from "apollo-client";
+
+const updateList: MutationUpdaterFn<createNewList> = (cache, result) => {
+  const { data } = result;
+  cache.writeQuery({
+    query: myWishListsQuery,
+    data: { myWishLists: data!.createNewList }
+  });
+};
 
 export const CreateNewList: React.FC = () => {
   const [addData] = useMutation<createNewList>(createNewListMutation, {
-    update(cache, result) {
-      const { data } = result;
-      cache.writeQuery({
-        query: myWishListsQuery,
-        data: { myWishLists: data!.createNewList }
-      });
-    }
+    update: updateList
   });
   return (
     <div className="create-new-list">
