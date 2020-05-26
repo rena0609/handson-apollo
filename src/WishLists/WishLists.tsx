@@ -3,7 +3,7 @@ import { myWishListsQuery, createNewListMutation } from "./queries";
 import { myWishLists, createNewList } from "src/__generated__/types";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { MutationUpdaterFn } from "apollo-client";
-import { AddWhatIWant } from "src/AddItem/AddItem";
+import { AddWhatIWant } from "../AddItem/AddItem";
 
 const updateList: MutationUpdaterFn<createNewList> = (cache, result) => {
   const { data } = result;
