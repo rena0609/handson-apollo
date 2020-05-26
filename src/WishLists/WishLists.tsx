@@ -3,6 +3,7 @@ import { myWishListsQuery, createNewListMutation } from "./queries";
 import { myWishLists, createNewList } from "src/__generated__/types";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { MutationUpdaterFn } from "apollo-client";
+import { AddWhatIWant } from "src/AddItem/AddItem";
 
 const updateList: MutationUpdaterFn<createNewList> = (cache, result) => {
   const { data } = result;
@@ -103,30 +104,38 @@ export const WishLists: React.FC = () => {
     <div className="WishLists">
       <h2>ほしい物リスト一覧</h2>
       <ul className="WishLists">
-        {data?.myWishLists.map(wishList => (
+        {data!.myWishLists.map(wishList => (
           // ほしいものリストの一覧
-          <li key={wishList.id.toString()}>
-            <strong>{wishList.title}</strong> - {wishList.description}
-            <ul>
-              {wishList.things.map(thing =>
-                thing ? (
-                  <li key={thing.id.toString()}>
-                    {thing.name}
-                    <ul>
-                      <li>
-                        メモ - <em>{thing.description}</em>
-                      </li>
-                      <li>希望数: {thing.nHowMany}</li>
-                    </ul>
-                  </li>
-                ) : (
-                  <p>このリストにはアイテムがありません</p>
-                )
-              )}
-            </ul>
-          </li>
+          <>
+            <li key={wishList.id.toString()}>
+              <strong>{wishList.title}</strong> - {wishList.description}
+              <ul>
+                {wishList.things.map(thing =>
+                  thing ? (
+                    <li key={thing.id.toString()}>
+                      {thing.name}
+                      <ul>
+                        <li>
+                          メモ - <em>{thing.description}</em>
+                        </li>
+                        <li>希望数: {thing.nHowMany}</li>
+                      </ul>
+                    </li>
+                  ) : (
+                    <p>このリストにはアイテムがありません</p>
+                  )
+                )}
+                <div className="row">
+                  <div className="four columns">
+                    <AddWhatIWant listId={wishList.id} />
+                  </div>
+                </div>
+              </ul>
+            </li>
+          </>
         ))}
       </ul>
+      )
     </div>
   );
 };

@@ -2,6 +2,37 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: addWhatIWantToList
+// ====================================================
+
+export interface addWhatIWantToList_addWhatIWantToList_things {
+  __typename: "WhatIWant";
+  id: number;
+  name: string;
+  description: string | null;
+  nHowMany: number;
+}
+
+export interface addWhatIWantToList_addWhatIWantToList {
+  __typename: "WishList";
+  id: number;
+  title: string;
+  description: string | null;
+  things: addWhatIWantToList_addWhatIWantToList_things[];
+}
+
+export interface addWhatIWantToList {
+  addWhatIWantToList: addWhatIWantToList_addWhatIWantToList;
+}
+
+export interface addWhatIWantToListVariables {
+  input: WhatIWantInput;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: myWishLists
 // ====================================================
 
@@ -62,6 +93,14 @@ export interface createNewListVariables {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+//
+export interface WhatIWantInput {
+  name: string;
+  description?: string | null;
+  nHowMany: number;
+  listId: number;
+}
 
 //
 export interface ListInput {
