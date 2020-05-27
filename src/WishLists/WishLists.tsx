@@ -7,6 +7,7 @@ import { AddWhatIWant } from "../AddItem/AddItem";
 
 const updateList: MutationUpdaterFn<createNewList> = (cache, result) => {
   const { data } = result;
+  console.log(result);
   cache.writeQuery({
     query: myWishListsQuery,
     data: { myWishLists: data!.createNewList }
@@ -33,7 +34,7 @@ interface ListFormProps {
 }
 
 const ListForm: React.FC<ListFormProps> = ({ create }) => {
-  //let input
+  //let input;
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
 
@@ -57,7 +58,7 @@ const ListForm: React.FC<ListFormProps> = ({ create }) => {
   return (
     <>
       <h2>リストを新規作成</h2>
-      <form className="list-form" onSubmit={() => handleSubmit}>
+      <form className="list-form" onSubmit={handleSubmit}>
         <div className="row">
           <div className="six columns">
             <label htmlFor={"listTitle"}>
@@ -69,7 +70,7 @@ const ListForm: React.FC<ListFormProps> = ({ create }) => {
                 name="title"
                 value={title}
                 onChange={handleInput}
-                //ref={n => (input = n)}
+                //ref={(n) => (input = n)}
               />
             </label>
           </div>
@@ -83,7 +84,7 @@ const ListForm: React.FC<ListFormProps> = ({ create }) => {
                 name="description"
                 value={description}
                 onChange={handleInput}
-                //ref={n => (input = n)}
+                //ref={(n) => (input = n)}
               />
             </label>
           </div>
@@ -135,7 +136,6 @@ export const WishLists: React.FC = () => {
           </>
         ))}
       </ul>
-      )
     </div>
   );
 };
